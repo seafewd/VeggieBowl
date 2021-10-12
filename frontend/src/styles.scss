@@ -1,0 +1,118 @@
+// mini reset css
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+
+// google fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
+
+// material icons
+@import url('https://fonts.googleapis.com/css?family=Material+Icons+Outlined|Material+Icons');
+
+@import '../node_modules/bulma/bulma.sass';
+
+$darker-green: #3E432E;
+$dark-green: #616F39;
+$green: #A7D129;
+$dark-blue: #0d1117;
+$darker-blue: #010409;
+
+// update bulma's global variables
+$family-sans-serif: 'Nunito', sans-serif;
+$primary: green;
+
+$link: $dark-green;
+
+// update bulma's component variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+/*** is-* classes ***/
+.is-bold {
+    font-weight: bold;
+}
+
+.is-smaller {
+    font-size: 80%;
+}
+
+.is-bigger {
+    font-size: 120%;
+}
+
+/*** END is-* CLASSES ***/
+
+html {
+    background: linear-gradient(to right bottom, $darker-blue, $dark-blue);
+    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+}
+
+p,
+h1, h2, h3, h4, h5, h6 {
+    color: rgba(white, .9);
+    font-family: $family-sans-serif;
+
+}
+
+div {
+    color: rgba(white, .9);
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 3px;
+}
+
+p a {
+    color: #58a6ff;
+}
+
+p a:hover {
+    color: #2a7bd8;
+}
+
+/** HEADING STYLES **/
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 36px;
+    line-height: 1.1em;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 28px;
+    line-height: 1.2em;
+}
+
+h1.is-bold,
+h2.is-bold {
+    font-weight: bold;
+    letter-spacing: -2px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.content-col-3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &>div {
+        width: 30%;
+    }
+}

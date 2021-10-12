@@ -1,0 +1,30 @@
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    overflow: auto;
+}
+
+.app-wrapper-inner {
+    display: flex;
+    flex-grow: 1;
+
+    max-width: 1200px;
+
+    margin: auto;
+    padding: 35px;
+}
+
+.content-section {
+    flex-grow: 1;
+    min-height: 0;
+}
+
+footer {
+    display: flex;
+
+    app-tabs {
+        margin: auto;
+    }
+}
