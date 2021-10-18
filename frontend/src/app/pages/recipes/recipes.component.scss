@@ -1,0 +1,37 @@
+@import '../../../styles';
+
+$card-background-color: black;
+
+
+.recipes-wrapper {
+}
+
+.recipe-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    .recipes-content {
+
+        flex: 1;
+        flex-grow: 1;
+        flex-direction: row;
+        flex-basis: 28%;
+        justify-content: space-between;
+    }
+
+    .card {
+        background-color: $primary-light;
+
+        border: 1px solid rgba($primary-lighter, .2);
+
+        transition: .2s all ease;
+
+        &:hover {
+            transform: scale(1.03);
+            border: 1px solid rgba($primary-lighter, .4);
+
+        }
+    }
+
+}

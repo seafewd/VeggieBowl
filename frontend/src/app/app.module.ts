@@ -9,6 +9,9 @@ import { ENumbersComponent } from './pages/e-numbers/e-numbers.component';
 import { StartPageComponent } from './pages/start-page/start-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddRecipeComponent } from './pages/recipes/add-recipe/add-recipe.component';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,14 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
     FooterComponent,
     ENumbersComponent,
     StartPageComponent,
-    RecipesComponent
+    RecipesComponent,
+    AddRecipeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

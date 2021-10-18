@@ -1,5 +1,3 @@
-// mini reset css
-@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 
 // google fonts
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
@@ -7,26 +5,47 @@
 // material icons
 @import url('https://fonts.googleapis.com/css?family=Material+Icons+Outlined|Material+Icons');
 
-@import '../node_modules/bulma/bulma.sass';
 
 $darker-green: #3E432E;
 $dark-green: #616F39;
 $green: #A7D129;
 $dark-blue: #0d1117;
 $darker-blue: #010409;
+$white: rgba(white, .85);
 
 // update bulma's global variables
 $family-sans-serif: 'Nunito', sans-serif;
-$primary: green;
 
-$link: $dark-green;
+$primary: $dark-blue;
+$primary-light: #141a24;
+$primary-lighter: #4d6588;
+
+$link: #58a6ff;
+$link-hover: #2a7bd8;
+
+$title-color: rgba(white, .85);
+$title-color: white;
+$subtitle-color: rgba(white, .85);
+
+$navbar-background-color: $primary-light;
+
 
 // update bulma's component variables
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
-/*** is-* classes ***/
+// update bulma's classes
+.title {
+    color: $white;
+}
+
+.subtitle {
+    color: $white;
+}
+
+
+/*** is-* and has-* classes ***/
 .is-bold {
     font-weight: bold;
 }
@@ -39,7 +58,11 @@ $input-shadow: none;
     font-size: 120%;
 }
 
-/*** END is-* CLASSES ***/
+.has-margin-bottom {
+    margin-bottom: 15px;
+}
+
+/*** END is-* and has-* CLASSES ***/
 
 html {
     background: linear-gradient(to right bottom, $darker-blue, $dark-blue);
@@ -52,27 +75,27 @@ html, body {
 
 p,
 h1, h2, h3, h4, h5, h6 {
-    color: rgba(white, .9);
+    color: $white;
     font-family: $family-sans-serif;
 
 }
 
 div {
-    color: rgba(white, .9);
+    color: $white;
 }
 
 p {
     font-size: 18px;
     font-family: 'Lato', sans-serif;
-    margin-bottom: 3px;
+    margin-bottom: 15px;
 }
 
 p a {
-    color: #58a6ff;
+    color: $link;
 }
 
 p a:hover {
-    color: #2a7bd8;
+    color: $link-hover;
 }
 
 /** HEADING STYLES **/
@@ -116,3 +139,6 @@ a {
         width: 30%;
     }
 }
+
+
+@import '../node_modules/bulma/bulma.sass';

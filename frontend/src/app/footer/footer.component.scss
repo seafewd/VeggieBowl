@@ -1,10 +1,33 @@
+@import '../../styles';
+
 footer {
+    background: linear-gradient($darker-blue, $dark-blue);
+    
+    border-top: 1px solid rgba(white, .05);
+}
+
+.footer-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
+    flex-direction: row;
 
-    background-color: rgba(white, .5);
+    max-width: 1000px;
 
-    margin-top: 35px;
+    margin: auto;
+
+    padding: 20px 0;
+
+    .footer-heading {
+        color: $white;
+        font-size: 25px;
+        letter-spacing: 1.2px;
+    
+        margin: 0;
+    }
+
+    i {
+        padding-left: 8px;
+    }
 }
+
