@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const { Ingredient } = require('./ingredient.model');
 
 const RecipeSchema = ({
-    title: {
+    name: {
         type: String,
-        required: true,
+        required: false,
         minlength: 1,
         trim: true
     },
@@ -22,6 +22,10 @@ const RecipeSchema = ({
         type: String,
         required: false,
         trim: true
+    },
+    type: {
+        type: String,
+        required: false
     }
 })
 

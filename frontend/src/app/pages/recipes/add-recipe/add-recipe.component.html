@@ -1,17 +1,124 @@
-<form #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)">
-    <div class="form-field">
-        <label for="name" class="form-label">Name</label>
-        <input class="textbox" ngModel #textField="ngModel" name="name" type="text" placeholder="Enter recipe name..." minlength="3">
+<div class="add-recipe-wrapper">
+
+  <h1 class="add-recipe-heading title">Add your own recipe</h1>
+  <h3 class="add-recipe-subheading subtitle">Upload your own recipe and share it with the rest of the world. Don't keep
+    that tasty dish to yourself :)</h3>
+  <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)" class="add-recipe-form">
+
+    <div class="field">
+      <label class="label">Recipe name</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Recipe name" name="name" ngModel>
+      </div>
     </div>
 
-    <div class="form-field">
-        <label for="description" class="form-label">URL</label>
-        <input class="textbox" ngModel #textField="ngModel" name="description" type="text"
-            placeholder="Description">
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <textarea class="textarea" placeholder="Description" name="description" ngModel></textarea>
+      </div>
     </div>
 
-    <div class="btns-container">
-        <a routerLink="../" class="btn">Cancel</a>
-        <button class="btn align-end">Create</button>
+    <div class="field">
+      <label class="label">Instructions</label>
+      <div class="control">
+        <textarea class="textarea" placeholder="Instructions" name="instructions" ngModel></textarea>
+      </div>
     </div>
-</form>
+
+    <div class="field">
+      <label class="label">Type</label>
+      <div class="control">
+        <div class="select">
+          <select (ngModel)="selectedRecipeType" #recipeType name="type">
+            <option *ngFor="let recipeType of options">{{ recipeType.name }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <label class="label">Upload an image</label>
+    <div class="file has-name is-boxed">
+      <label class="file-label">
+        <input class="field file-input" type="file" name="image" ngModel>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="material-icons">upload</i>
+          </span>
+          <span class="file-label">
+            Choose an image...
+          </span>
+        </span>
+        <span class="file-name">
+          filename.png
+        </span>
+      </label>
+    </div>
+
+    <label class="label">Add some tags (optional)</label>
+    <div class="field has-addons">
+      <div class="control">
+        <input name="tags" ngModel class="input" type="text" placeholder="Add a tag...">
+      </div>
+      <div class="control">
+        <a class="button is-info">
+          Add
+        </a>
+      </div>
+    </div>
+
+    <div class="tags-wrapper">
+      <div class="field is-grouped is-grouped-multiline">
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-dark">Nutritious</span>
+            <a class="tag is-delete"></a>
+          </div>
+        </div>
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-dark">Low fat</span>
+            <a class="tag is-delete"></a>
+          </div>
+        </div>
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-dark">Vitamin rich</span>
+            <a class="tag is-delete"></a>
+          </div>
+        </div>
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-dark">Protein bomb</span>
+            <a class="tag is-delete"></a>
+          </div>
+        </div>
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-dark">Family friendly</span>
+            <a class="tag is-delete"></a>
+          </div>
+        </div>
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-dark">Veggies only</span>
+            <a class="tag is-delete"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field submit-btn-wrapper is-grouped">
+      <div class="control">
+        <button class="button is-link">Preview</button>
+      </div>
+      <div class="control">
+        <button class="button is-link">Save to draft</button>
+      </div>
+      <div class="control">
+        <button class="button is-link">Submit</button>
+      </div>
+    </div>
+  </form>
+
+</div>

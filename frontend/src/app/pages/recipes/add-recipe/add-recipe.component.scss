@@ -1,0 +1,24 @@
+@import '../../../../styles.scss';
+
+.add-recipe-form label {
+    color: $brighter-blue;
+}
+
+.submit-btn-wrapper {
+    margin-top: 20px;
+}
+
+.tags-wrapper {
+    padding: 18px;
+    
+    border-radius: 5px;
+    border: 2px solid $bright-blue;
+}
+
+.file {
+    margin-bottom: 8px;
+}
+
+.select select{
+    min-width: 180px;
+}

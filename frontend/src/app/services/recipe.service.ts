@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Recipe } from '../models/recipe.model';
 import { WebRequestService } from './web-request.service';
 
 @Injectable({
@@ -12,13 +13,16 @@ export class RecipeService {
       return this.webRequestService.get('recipes');
     }
 
-    createRecipe(title: string) {
-      console.log("service creating recipe")
-      return this.webRequestService.post('recipes', { title });
+    getRecipe(id: string) {
+      return this.webRequestService.get(`recipes/${id}`);
     }
 
-    updateRecipe(id: string, name: string) {
-      return this.webRequestService.patch(`recipes/${id}`, { name });
+    createRecipe(form: string) {
+      return this.webRequestService.post('recipes', { form });
+    }
+
+    updateRecipe(id: string, title: string) {
+      return this.webRequestService.patch(`recipes/${id}`, { title });
     }
 
     deleteRecipe(id: string) {

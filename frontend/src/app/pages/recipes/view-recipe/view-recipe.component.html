@@ -1,0 +1,17 @@
+<div class="recipe-wrapper">
+
+    <div class="recipe-content">
+
+        <ng-container *ngIf="!recipe">
+            <h2 class="title">Uh oh... something went really wrong here. <a routerLink="/">Go back</a></h2>
+        </ng-container>
+        <!-- recipe content -->
+        <ng-container *ngIf="recipe">
+            <h2 class="recipe-name title">{{ recipe.name }}</h2>
+            <p class="recipe-name subtitle">{{ recipe.description }}</p>
+            <p class="recipe-type subtitle">{{ recipe.type }}</p>
+        </ng-container>
+
+    </div>
+
+</div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,11 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddRecipeComponent } from './pages/recipes/add-recipe/add-recipe.component';
 import { FormsModule, NgForm } from '@angular/forms';
+import { ViewRecipeComponent } from './pages/recipes/view-recipe/view-recipe.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContributeComponent } from './pages/contribute/contribute.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +28,19 @@ import { FormsModule, NgForm } from '@angular/forms';
     ENumbersComponent,
     StartPageComponent,
     RecipesComponent,
-    AddRecipeComponent
+    AddRecipeComponent,
+    ViewRecipeComponent,
+    NotificationComponent,
+    ContactComponent,
+    AboutComponent,
+    ContributeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

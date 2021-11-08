@@ -1,4 +1,6 @@
 const express = require('express');
+const multer = require('multer');
+
 const app = express();
 const port = 3000;
 
@@ -35,20 +37,35 @@ app.get('/recipes', (req, res) => {
     })
 })
 
+/** GET one recipe */
+app.get('/recipes/:id', (req, res) => {
+    // return array of all recipes in db
+    Recipe.findOne({
+        _id: req.params.id
+    }).then((recipe) => {
+        res.send(recipe);
+    })
+})
+
 /* POST /recipes */
 app.post('/recipes', (req, res) => {
     // create a new recipe and return the recipe document back to user (includes id)
     // recipe information (fields) will be passed in via the JSON request body
-    let title = req.body.title;
-    let description = req.body.description;
-    //let ingredients = req.body.ingredients;
-    let instructions = req.body.instructions;
+    let form = JSON.parse(req.body.form);
+    console.log(form);
+
+    let name = form.name;
+    let description = form.description;
+    let ingredients = form.ingredients;
+    let instructions = form.instructions;
+    let type = form.type;
 
     let newRecipe = new Recipe({
-        title,
+        name,
         description,
-        //ingredients,
-        instructions
+        ingredients,
+        instructions,
+        type
     });
     newRecipe.save().then((recipeDoc) => {
         // full recipe document is returned
@@ -67,14 +84,15 @@ app.patch('/recipes/:id', (req, res) => {
 })
 
 app.delete('/recipes/:id', (req, res) => {
+    console.log("deleting recipe " + req.params.id)
     // delete the specified recipe
     Recipe.findOneAndRemove({
-        _id: req.params.id
+        _id: req.params.id,
     }).then((removedRecipeDoc) => {
         res.send(removedRecipeDoc)
     })
 })
 
 app.listen(port, () => {
-    console.log('VeggieBowl server is listening on port ' + port);
+    console.log(`VeggieBowl server is listening on port ${port}.`);
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/services/recipe.service';
 
@@ -10,6 +11,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class RecipesComponent implements OnInit {
 
   recipes?: Recipe[];
+  form?: NgForm;
   
   constructor(private recipeService: RecipeService) { }
 
@@ -20,11 +22,8 @@ export class RecipesComponent implements OnInit {
     }) 
   }
 
-  createNewRecipe() {
-    this.recipeService.createRecipe('Testing').subscribe((response: any) => {
-      console.log("recipe created");
-      console.log(response);
-    })
+  deleteRecipe(id: string) {
+    this.recipeService.deleteRecipe(id);
   }
 
 }

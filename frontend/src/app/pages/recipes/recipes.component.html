@@ -1,40 +1,73 @@
 <div class="recipes-wrapper container">
 
-    <h1 class="title is-1">Recipes</h1>
+  <h1 class="title is-1">Recipes</h1>
 
-    <div class="recipe-boxes">
-        <div class="recipes-content" *ngFor="let recipe of recipes">
-            <div class="recipe">
+  <h3 class="subtitle">Browse all users' recipes here. You can also use the search bar to find a specific recipe or use filters to find something that suits you best.</h3>
 
-                <div class="card">
-                    <div class="card-image">
-                      <figure class="image is-4by3">
-                        <img src="../assets/recipe-images/image2.png" alt="Placeholder image">
-                      </figure>
-                    </div>
-                    <div class="card-content">
-                      <div class="media">
-                        <div class="media-left">
-                          <figure class="image is-48x48">
-                            <img src="../assets/recipe-images/image.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="media-content">
-                          <p class="title is-4">{{ recipe.title}}</p>
-                          <p class="subtitle is-6">@johnsmith</p>
-                        </div>
-                      </div>
-                  
-                      <div class="content">
-                        {{ recipe.description }} <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                      </div>
+  <div class="recipe-boxes">
+    <div class="recipes-content" *ngFor="let recipe of recipes">
+      <div>
+        <!-- todo fix -->
+        <h2 *ngIf="recipes?.length === 0" class="subtitle">No recipes yet :(</h2>
+      </div>
+
+      <div class="recipe">
+
+        <div class="card">
+          <div class="type-tag">
+            <a class="type-tag-link">Breakfast</a>
+          </div>
+          <a [routerLink]="['/recipes', recipe._id]" class="recipe-link">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="../assets/recipe-images/image2.png" alt="Placeholder image">
+              </figure>
+            </div>
+          </a>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="../assets/recipe-images/image.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <a [routerLink]="['/recipes', recipe._id]" class="recipe-link">
+                  <p class="title is-4">{{ recipe.name}}</p>
+                </a>
+                <p class="subtitle is-6">@anonymous</p>
+              </div>
+            </div>
+
+            <div class="text-content">
+              <div class="description-wrapper">
+                {{ recipe.description }}
+              </div>
+              <a [routerLink]="['/recipes', recipe._id]" class="recipe-link">Full
+                recipe</a>
+              <div class="tags-wrapper">
+                <div class="field is-grouped is-grouped-multiline">
+                  <div class="control">
+                    <div class="tags">
+                      <a><span class="tag is-dark">#Nutritious</span></a>
                     </div>
                   </div>
+                  <div class="control">
+                    <div class="tags">
+                      <a><span class="tag is-dark">#Low fat</span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              <button class="delete-btn" (click)="deleteRecipe(recipe._id)">
+                <i class="material-icons delete-btn">delete</i>
+              </button>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
+  </div>
 </div>

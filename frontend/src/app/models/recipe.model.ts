@@ -1,8 +1,11 @@
+import { RecipeType } from "./recipe-type.model";
+
 export class Recipe {
 
-    _id!: string; // TODO FIX
-    title?: string;
-    description?: string;
+    _id: string;
+    name: string;
+    description: string;
+    type: RecipeType;
 
     constructor() { }
 

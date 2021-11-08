@@ -52,7 +52,9 @@ export class WebRequestService {
    * @returns 
    */
   delete(uri: string) {
-    return this.http.delete(`${this.ROOT_URL}/${uri}`);
+    return this.http.delete(`${this.ROOT_URL}/${uri}`).subscribe((res) => {
+      console.log(res);
+    })
   }
 
   // TODO
