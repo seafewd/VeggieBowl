@@ -18,11 +18,11 @@ const RecipeSchema = ({
         ref: 'Ingredient',
         required: false
     }],
-    instructions: {
+    instructions: [{
         type: String,
         required: false,
         trim: true
-    },
+    }],
     type: {
         type: String,
         required: false

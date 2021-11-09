@@ -1,0 +1,9 @@
+<div class="instruction-wrapper">
+
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+  </div>
+  
+  <!--<button class="button is-danger" (click)="onDeleteInstructionClick(instruction._id)"></button>-->
+
+</div>

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification.service';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { InstructionComponent } from './instruction/instruction.component';
 
 @Component({
   selector: 'app-add-recipe',
@@ -16,8 +17,8 @@ export class AddRecipeComponent implements OnInit {
     private notificationService: NotificationService,
     private router: Router) { }
 
+    // recipe types
     selectedRecipeType: string;
-
     options = [
         { name: "Breakfast", value: "breakfast" },
         { name: "Lunch", value: "lunch" },
@@ -26,6 +27,8 @@ export class AddRecipeComponent implements OnInit {
         { name: "Brunch", value: "brunch" },
         { name: "Other", value: "other" }
     ]
+
+    instructions: InstructionComponent[];
 
   ngOnInit(): void {
   }
@@ -37,7 +40,6 @@ export class AddRecipeComponent implements OnInit {
     this.recipeService.createRecipe(data).subscribe((recipe: any) => {
       this.router.navigateByUrl(`/recipes/${recipe._id}`);
       this.notificationService.show("Recipe created!");
-      console.log(recipe);
     })
   }
 

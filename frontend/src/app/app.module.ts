@@ -18,6 +18,8 @@ import { NotificationComponent } from './components/notification/notification.co
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
+import { InstructionComponent } from './pages/recipes/add-recipe/instruction/instruction.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -33,14 +35,16 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
     NotificationComponent,
     ContactComponent,
     AboutComponent,
-    ContributeComponent
+    ContributeComponent,
+    InstructionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
