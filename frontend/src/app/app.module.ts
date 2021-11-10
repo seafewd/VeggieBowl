@@ -20,6 +20,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
 import { InstructionComponent } from './pages/recipes/add-recipe/instruction/instruction.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ImageUploadComponent } from './pages/recipes/add-recipe/image-upload/image-upload.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ContactComponent,
     AboutComponent,
     ContributeComponent,
-    InstructionComponent
+    InstructionComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,

@@ -10,11 +10,17 @@ export class ImageService {
 
   constructor(private httpClient: HttpClient ) { }
 
-  public upload(formData: FormData) {
-    return this.httpClient.post<any>(this.SERVER_URL, formData, {
-      reportProgress: true,
-      observe: 'events'
-    });
+  uploadImage(image: File){
+    const formData = new FormData();
+    formData.append('image', image);
+    this.httpClient.post(`${this.SERVER_URL}/api/uploads/image-upload`, formData).subscribe(
+      (req) => {
+
+      },
+      (res) => {
+
+      }
+    )
   }
 
 }
