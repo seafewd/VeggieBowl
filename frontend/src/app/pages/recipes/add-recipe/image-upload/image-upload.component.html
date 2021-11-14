@@ -1,24 +1,23 @@
-<label class="label">Upload an image</label>
-<div class="file has-name is-boxed">
-    <label class="file-label">
-        <input 
-            #imageInput
-            ngModel
-            class="field file-input"
-            type="file"
-            name="image"
-            accept="image/*"
-            change="processFile(imageInput)">
-        <span class="file-cta">
-            <span class="file-icon">
-                <i class="material-icons">upload</i>
+<div class="upload-wrapper">
+    <label class="label">Upload images</label>
+    <div class="file is-boxed">
+        <label class="file-label">
+            <input ngModel multiple class="field file-input" type="file" name="image" accept="image/*"
+                (change)="processFiles($event)">
+            <span class="file-cta">
+                <span class="file-icon">
+                    <i class="material-icons">upload</i>
+                </span>
+                <span class="file-label">
+                    Choose one or more images...
+                </span>
             </span>
-            <span class="file-label">
-                Choose an image...
-            </span>
-        </span>
-        <span class="file-name">
-            filename.png
-        </span>
-    </label>
+        </label>
+    </div>
+
+    <div class="img-preview-container" *ngIf="imagePaths.length !== 0">
+        <div class="img-preview" *ngFor="let path of imagePaths"
+            style.background="url('{{ path }}') no-repeat center center / cover">
+        </div>
+    </div>
 </div>

@@ -4,6 +4,7 @@ export class Recipe {
     name: string;
     description: string;
     type: string;
+    published: boolean;
 
     constructor() { }
 

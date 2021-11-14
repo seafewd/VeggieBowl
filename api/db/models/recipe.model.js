@@ -26,6 +26,12 @@ const RecipeSchema = ({
     type: {
         type: String,
         required: false
+    },
+    images: [{
+
+    }],
+    published: {
+        type: Boolean
     }
 })
 

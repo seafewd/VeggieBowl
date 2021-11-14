@@ -1,31 +1,52 @@
 const express = require('express');
-const multer = require('multer');
 
 const app = express();
 const port = 3000;
 
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "uploads/images");
+    },
+    filename: function (req, file, cb) {
+        cb(null, `${Date.now()}_${file.originalname}`);
+    }
+})
+
+const upload = multer({ storage });
+
+const cors = require('cors');
+const corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200
+};
+
 const { mongoose } = require('./db/mongoose');
+
+// load in mongoose models
+const { Recipe } = require('./db/models');
 
 // parse incoming requests with JSON payload
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// load in mongoose models
-const { Recipe } = require('./db/models');
+app.use(express.static('public'));  
+app.use('/uploads/images', express.static('uploads/images'));
 
-// CORS HEADERS MIDDLEWARE
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id");
 
-    res.header(
-        'Access-Control-Expose-Headers',
-        'x-access-token, x-refresh-token'
-    );
+app.use(cors(corsOptions));
 
-    next();
-});
+
+// // CORS HEADERS MIDDLEWARE
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id");
+//     res.header('Access-Control-Expose-Headers', 'x-access-token, x-refresh-token');
+//     next();
+// });
+
 
 /* ROUTE HANDLERS */
 
@@ -52,25 +73,52 @@ app.post('/recipes', (req, res) => {
     // create a new recipe and return the recipe document back to user (includes id)
     // recipe information (fields) will be passed in via the JSON request body
     let form = JSON.parse(req.body.form);
-    console.log(form);
+    console.log("recipe created: " + form);
 
     let name = form.name;
     let description = form.description;
     let ingredients = form.ingredients;
     let instructions = form.instructions;
     let type = form.type;
+    let published = form.published;
 
     let newRecipe = new Recipe({
         name,
         description,
         ingredients,
         instructions,
-        type
+        type,
+        published
     });
     newRecipe.save().then((recipeDoc) => {
         // full recipe document is returned
         res.send(recipeDoc);
     })
+})
+
+/**
+ * POST single image upload
+ */
+app.post('/file', upload.single('file'), (req, res) => {
+    const file = req.file;
+    if (file) {
+        res.json(file);
+    }
+    else {
+        throw new Error("Failed to upload")
+    }
+})
+
+/**
+ * POST multiple image upload
+ */
+app.post('/files', upload.array('images'), (req, res) => {
+    const files = req.files;
+    console.log(files)
+    if (Array.isArray(files) && files.length > 0)
+        res.json(files);
+    else
+        throw new Error("Failed to upload")
 })
 
 app.patch('/recipes/:id', (req, res) => {

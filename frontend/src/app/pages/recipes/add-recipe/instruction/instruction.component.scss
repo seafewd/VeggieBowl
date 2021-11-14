@@ -3,17 +3,22 @@
 .instruction-wrapper {
 
   .add {
-    margin-top: 15px;
-    padding: 5px 15px;
-    transition: .2s all linear;
+    display: flex;
+    padding: 23px 20px;
+    transition: .2s all ease-in-out;
+
+    background-color: $primary;
+    transition: .2s all ease-in-out;
+    border: 2px solid rgba($primary-light, .4);
+    color: rgba(white, .7);
 
     i {
       margin-right: 10px;
     }
-
     .add-step-text {
-      font-size: 14px;
-      color: $primary;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1.1px;
     }
   }
 }
@@ -50,6 +55,7 @@
     align-items: center;
     box-sizing: border-box;
     background: $primary;
+    margin-bottom: 20px;
 
     &:hover {
       .delete {

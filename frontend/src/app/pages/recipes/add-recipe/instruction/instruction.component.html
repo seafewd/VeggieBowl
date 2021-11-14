@@ -3,7 +3,7 @@
   <div cdkDropList class="instructions-list" (cdkDropListDropped)="drop($event)">
     <div class="instruction field" *ngFor="let instruction of instructions" cdkDrag>
       <div class="handle" cdkDragHandle>
-        <div class="index-box"># {{ instructions.indexOf(instruction) + 1 }}</div>
+        <div class="index-box"><b>{{ instructions.indexOf(instruction) + 1 }}.</b></div>
       </div>
       <input type="text" class="instruction-field" placeholder="Enter an instruction step">
       <div class="handle-right" cdkDragHandle>
@@ -12,8 +12,10 @@
       <button class="button is-danger delete" (click)="onDeleteInstructionClick(instruction)"></button>
     </div>
   </div>
-  <button class="button add" (click)="onAddInstructionClick()">
-    <i class="material-icons">add</i>
-    <p class="add-step-text">Add an instruction step</p>
-  </button>
+  <div class="field">
+    <button class="button add" (click)="onAddInstructionClick()">
+      <i class="material-icons">add</i>
+      <p class="add-step-text">Add instruction step</p>
+    </button>
+  </div>
 </div>

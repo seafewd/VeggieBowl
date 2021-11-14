@@ -16,9 +16,37 @@
 }
 
 .file {
-    margin-bottom: 8px;
+background: rgba($primary-light, .4) !important;
+.file-label {
+        background: rgba($primary-light, .4) !important;
+        
+        border: 2px solid rgba($primary-light, .4) !important;
+        border-color: $primary-light !important;
+        input, .field {
+            background: rgba($primary-light, .4) !important;
+            border-color: $primary-light !important;
+            
+        }
+    }
+}
+
+.field {
+    margin-bottom: 25px !important;
 }
 
 .select select{
     min-width: 180px;
+}
+
+.textarea, .control input, .control select, .add {
+    background-color: $primary;
+    color: $white;
+    transition: .2s all ease-in-out;
+    border: 2px solid rgba($primary-light, .4);
+    &::placeholder {
+        color: rgba(white, .4);
+    }
+    &:hover, &:focus, &:focus-within, &:active, &:focus-visible {
+        border: 2px solid rgba($primary-light, .4);
+    }
 }

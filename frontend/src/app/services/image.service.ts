@@ -1,26 +1,26 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { WebRequestService } from './web-request.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
 
-  SERVER_URL: string = 'https://localhost:3000';
+  constructor(private webRequestService: WebRequestService ) { }
 
-  constructor(private httpClient: HttpClient ) { }
-
-  uploadImage(image: File){
+  uploadImages(images: FileList){
     const formData = new FormData();
-    formData.append('image', image);
-    this.httpClient.post(`${this.SERVER_URL}/api/uploads/image-upload`, formData).subscribe(
-      (req) => {
+    
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i];
+      formData.append('images', image);
+    }
+    
+    return this.webRequestService.post("files", formData);
+  }
 
-      },
-      (res) => {
-
-      }
-    )
+  get(uri: string) {
+    return `${this.webRequestService.ROOT_URL}/${uri}`;
   }
 
 }

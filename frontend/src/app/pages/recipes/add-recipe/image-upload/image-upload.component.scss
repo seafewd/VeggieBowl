@@ -1,1 +1,30 @@
 @import '../../../../../styles.scss';
+
+.upload-wrapper {
+    margin-bottom: 25px;
+}
+
+label {
+    color: $brighter-blue !important;
+}
+
+.img-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 100%;
+    gap: 25px;
+    margin-top: 25px;
+
+    .img-preview {
+        display: flex;
+        flex-basis: 28%;
+        border: 2px solid $brighter-blue;
+        border-radius: 4px;
+        transition: .2s all ease-in-out;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

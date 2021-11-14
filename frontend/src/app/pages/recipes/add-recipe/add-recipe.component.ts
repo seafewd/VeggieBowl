@@ -42,8 +42,4 @@ export class AddRecipeComponent implements OnInit {
       this.notificationService.show("Recipe created!");
     })
   }
-
-  processFile(imageInput: any) {
-
-  }
 }
