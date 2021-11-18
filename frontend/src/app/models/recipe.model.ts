@@ -5,6 +5,7 @@ export class Recipe {
     description: string;
     type: string;
     published: boolean;
+    images: string[];
 
     constructor() { }
 

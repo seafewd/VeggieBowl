@@ -10,9 +10,13 @@ import { ImageService } from 'src/app/services/image.service';
 export class ImageUploadComponent {
 
   images: any;
-  @Input() imagePaths: string[] = new Array();
+  public imagePaths: string[] = new Array();
 
   constructor(private imageService: ImageService) { }
+
+  public getImagePaths(): string[] {
+    return this.imagePaths;
+  }
 
   processFiles(event: any) {
     this.images = event.target.files;

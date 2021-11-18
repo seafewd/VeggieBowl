@@ -28,7 +28,8 @@ const RecipeSchema = ({
         required: false
     },
     images: [{
-
+        type: String,
+        trim: true
     }],
     published: {
         type: Boolean

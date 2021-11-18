@@ -81,6 +81,7 @@ app.post('/recipes', (req, res) => {
     let instructions = form.instructions;
     let type = form.type;
     let published = form.published;
+    let images = form.images;
 
     let newRecipe = new Recipe({
         name,
@@ -88,7 +89,8 @@ app.post('/recipes', (req, res) => {
         ingredients,
         instructions,
         type,
-        published
+        published,
+        images
     });
     newRecipe.save().then((recipeDoc) => {
         // full recipe document is returned
@@ -123,7 +125,7 @@ app.post('/files', upload.array('images'), (req, res) => {
 
 app.patch('/recipes/:id', (req, res) => {
     // update the specified recipe (recipe document with id in the url)
-    //with the new values specified in the JSON body of the request
+    // with the new values specified in the JSON body of the request
     Recipe.findOneAndUpdate({ _id: req.params.id }, {
         $set: req.body
     }).then(() => {

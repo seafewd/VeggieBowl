@@ -33,7 +33,7 @@ export class WebRequestService {
    * @returns 
    */
   post(uri: string, payload: Object) {
-    return this.http.post(`${this.ROOT_URL}/${uri}`, payload);
+    return this.http.post(`${this.ROOT_URL}/${uri}`.replace(/\s/g, ""), payload);
   }
 
   /**
