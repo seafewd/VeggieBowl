@@ -24,6 +24,7 @@
       <div class="control">
         <!--<textarea class="textarea" placeholder="Instructions" name="instructions" ngModel></textarea>-->
         <app-instruction></app-instruction>
+        <input class="input" type="hidden" name="instructions" ngModel="instructions" #instructions>        
       </div>
     </div>
 
@@ -31,7 +32,7 @@
       <label class="label">Type</label>
       <div class="control">
         <div class="select">
-          <select (ngModel)="selectedRecipeType" #recipeType name="type">
+          <select name="type">
             <option *ngFor="let recipeType of options">{{ recipeType.name }}</option>
           </select>
         </div>

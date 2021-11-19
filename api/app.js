@@ -73,12 +73,12 @@ app.post('/recipes', (req, res) => {
     // create a new recipe and return the recipe document back to user (includes id)
     // recipe information (fields) will be passed in via the JSON request body
     let form = JSON.parse(req.body.form);
-    console.log("recipe created: " + form);
 
     let name = form.name;
     let description = form.description;
     let ingredients = form.ingredients;
     let instructions = form.instructions;
+    console.log(instructions)
     let type = form.type;
     let published = form.published;
     let images = form.images;
@@ -89,8 +89,8 @@ app.post('/recipes', (req, res) => {
         ingredients,
         instructions,
         type,
-        published,
-        images
+        images,
+        published
     });
     newRecipe.save().then((recipeDoc) => {
         // full recipe document is returned

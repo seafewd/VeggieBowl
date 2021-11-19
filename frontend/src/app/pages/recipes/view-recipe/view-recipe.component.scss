@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+
+.recipe-wrapper {
+
+}
+
+.images-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 100%;
+    gap: 25px;
+    margin-top: 25px;
+
+    .image-container {
+        display: flex;
+        flex-basis: 28%;
+        border: 2px solid $brighter-blue;
+        border-radius: 4px;
+        transition: .2s all ease-in-out;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

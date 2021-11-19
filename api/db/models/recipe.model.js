@@ -19,9 +19,6 @@ const RecipeSchema = ({
         required: false
     }],
     instructions: [{
-        type: String,
-        required: false,
-        trim: true
     }],
     type: {
         type: String,

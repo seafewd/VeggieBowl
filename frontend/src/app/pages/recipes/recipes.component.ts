@@ -10,16 +10,15 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class RecipesComponent implements OnInit {
 
-  recipes?: Recipe[];
-  form?: NgForm;
+  recipes: Recipe[];
+  form: NgForm;
   
   constructor(private recipeService: RecipeService) { }
-
-  // TODO FIX
+  
   ngOnInit(): void {
     this.recipeService.getRecipes().subscribe((recipes: any) => {
       this.recipes = recipes;
-    }) 
+    });
   }
 
   deleteRecipe(id: string) {

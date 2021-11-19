@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Instruction } from 'src/app/models/instruction.model';
 import { InstructionService } from 'src/app/services/instruction.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -11,11 +11,17 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class InstructionComponent implements OnInit {
 
-  constructor(private instructionService: InstructionService) { }
+  @ViewChild('instructionInput') instructionInput: ElementRef;
+
+  constructor() { }
 
   instructions: Instruction[] = [];
 
   ngOnInit(): void {
+  }
+
+  public getInstructions() {
+    return this.instructions;
   }
 
   drop(event: CdkDragDrop<Instruction[]>) {
@@ -29,6 +35,13 @@ export class InstructionComponent implements OnInit {
   onAddInstructionClick() {
     const newInstruction = new Instruction();
     this.instructions.push(newInstruction);
+  }
+
+  saveInstructionText(instruction: Instruction) {
+    const text = this.instructionInput.nativeElement.value;
+    console.log(text)
+    instruction.text = text;
+    console.log(instruction.text)
   }
 
 }

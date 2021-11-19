@@ -1,3 +1,5 @@
+import { Instruction } from "./instruction.model";
+
 export class Recipe {
 
     _id: string;
@@ -5,6 +7,7 @@ export class Recipe {
     description: string;
     type: string;
     published: boolean;
+    instructions: Instruction[]
     images: string[];
 
     constructor() { }

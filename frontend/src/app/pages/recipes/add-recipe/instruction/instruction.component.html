@@ -5,7 +5,7 @@
       <div class="handle" cdkDragHandle>
         <div class="index-box"><b>{{ instructions.indexOf(instruction) + 1 }}.</b></div>
       </div>
-      <input type="text" class="instruction-field" placeholder="Enter an instruction step">
+      <input type="text" class="instruction-field" placeholder="Enter an instruction step" #instructionInput (focusout)="saveInstructionText(instruction)">
       <div class="handle-right" cdkDragHandle>
         <span class="material-icons">drag_handle</span>
       </div>
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="field">
-    <button class="button add" (click)="onAddInstructionClick()">
+    <button type="button" class="button add" (click)="onAddInstructionClick()">
       <i class="material-icons">add</i>
       <p class="add-step-text">Add instruction step</p>
     </button>
