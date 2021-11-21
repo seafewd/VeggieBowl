@@ -21,6 +21,7 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
 import { InstructionComponent } from './pages/recipes/add-recipe/instruction/instruction.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ImageUploadComponent } from './pages/recipes/add-recipe/image-upload/image-upload.component';
+import { TagComponent } from './pages/recipes/add-recipe/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ImageUploadComponent } from './pages/recipes/add-recipe/image-upload/im
     AboutComponent,
     ContributeComponent,
     InstructionComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,

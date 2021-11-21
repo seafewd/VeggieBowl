@@ -1,0 +1,55 @@
+<label class="label">Add some tags (optional)</label>
+    <div class="field has-addons">
+      <div class="control">
+        <input #tagInput class="input" type="text" placeholder="Add a tag...">
+      </div>
+      <div class="control">
+        <a class="button is-info" name="addTagButton" (click)="onAddTagClick(tagInput)">
+          Add
+        </a>
+      </div>
+    </div>
+
+<div class="tags-wrapper" *ngIf="tags.length > 0">
+    <div class="field is-grouped is-grouped-multiline" name="tags-container" *ngFor="let tagItem of tags">
+      <div class="control">
+        <div class="has-addons">
+          <span class="tag is-dark">{{ tagItem.text }}</span>
+          <a class="tag is-delete" #deleteTagButton (click)="onDeleteTagClick(tagItem)"></a>
+        </div>
+      </div>
+
+
+<!--       
+      <div class="control">
+        <div class="tags has-addons">
+          <span class="tag is-dark">Low fat</span>
+          <a class="tag is-delete"></a>
+        </div>
+      </div>
+      <div class="control">
+        <div class="tags has-addons">
+          <span class="tag is-dark">Vitamin rich</span>
+          <a class="tag is-delete"></a>
+        </div>
+      </div>
+      <div class="control">
+        <div class="tags has-addons">
+          <span class="tag is-dark">Protein bomb</span>
+          <a class="tag is-delete"></a>
+        </div>
+      </div>
+      <div class="control">
+        <div class="tags has-addons">
+          <span class="tag is-dark">Family friendly</span>
+          <a class="tag is-delete"></a>
+        </div>
+      </div>
+      <div class="control">
+        <div class="tags has-addons">
+          <span class="tag is-dark">Veggies only</span>
+          <a class="tag is-delete"></a>
+        </div>
+      </div>
+    </div>
+  </div> -->

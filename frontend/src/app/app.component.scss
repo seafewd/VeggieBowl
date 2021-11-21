@@ -1,18 +1,16 @@
 .app-wrapper {
     display: flex;
     flex-direction: column;
-
     height: 100%;
     overflow: auto;
 }
 
 .app-wrapper-inner {
-    display: flex;
-    flex-grow: 1;
+    flex: 1;
+    min-width: 900px;
+    max-width: 1224px;
 
-    max-width: 1200px;
-
-    margin: auto;
+    margin: 0 auto;
     padding: 35px;
 }
 

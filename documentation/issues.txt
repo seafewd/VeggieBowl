@@ -1,0 +1,2 @@
+1.
+    make upload image behave as instructions, aka save as object with id, path etc instead of just url 

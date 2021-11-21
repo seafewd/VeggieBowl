@@ -11,8 +11,6 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class InstructionComponent implements OnInit {
 
-  @ViewChild('instructionInput') instructionInput: ElementRef;
-
   constructor() { }
 
   instructions: Instruction[] = [];
@@ -37,11 +35,10 @@ export class InstructionComponent implements OnInit {
     this.instructions.push(newInstruction);
   }
 
-  saveInstructionText(instruction: Instruction) {
-    const text = this.instructionInput.nativeElement.value;
-    console.log(text)
+  saveInstructionText(instruction: Instruction, input: any) {
+    if (!input) return;
+    const text = input.value;
     instruction.text = text;
-    console.log(instruction.text)
   }
 
 }

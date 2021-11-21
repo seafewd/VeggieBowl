@@ -1,27 +1,32 @@
-<div class="recipe-wrapper">
+<div class="container">
+    <div class="recipe-wrapper">
 
-    <div class="recipe-content">
+        <div class="recipe-content">
 
-        <ng-container *ngIf="!recipe">
-            <h2 class="title">Uh oh... something went really wrong here. <a routerLink="/">Go back</a></h2>
-        </ng-container>
+            <ng-container *ngIf="!recipe">
+                <h2 class="title">Uh oh... something went really wrong here. <a routerLink="/">Go back</a></h2>
+            </ng-container>
 
-        <ng-container *ngIf="recipe">
-            <!-- recipe content -->
-            <h2 class="recipe-name title">{{ recipe.name }}</h2>
-            <p class="recipe-name subtitle">{{ recipe.description }}</p>
-            <p class="recipe-type subtitle">{{ recipe.type }}</p>
-            <div *ngIf="imagePaths" class="images-container">
-                <div *ngFor="let path of imagePaths" class="image-container"
-                    style="background: url('{{ path }}') no-repeat center center / cover"></div>
-            </div>
-            <div *ngFor="let instruction of instructions" class="instructions-container">
-                <div class="instruction">
-                    {{ instruction.text }}
+            <ng-container *ngIf="recipe">
+                <!-- recipe content -->
+                <h2 class="recipe-name title">{{ recipe.name }}</h2>
+                <p class="recipe-name subtitle">{{ recipe.description }}</p>
+                <p class="recipe-type subtitle">{{ recipe.type }}</p>
+                <div *ngIf="imagePaths.length > 0" class="images-container">
+                    <div *ngFor="let path of imagePaths" class="image-container"
+                        style="background: url('{{ path }}') no-repeat center center / cover"></div>
                 </div>
-            </div>
-        </ng-container>
+                <div *ngFor="let instruction of instructions" class="instructions-list">
+                    <div class="instruction">
+                        <div class="instruction-field">
+                            <div class="index-box"><b>{{ instructions.indexOf(instruction) + 1 }}.</b></div>
+                            {{ instruction.text }}
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+        </div>
 
     </div>
-
 </div>

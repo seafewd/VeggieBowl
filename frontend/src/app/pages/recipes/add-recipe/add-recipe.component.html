@@ -3,19 +3,21 @@
   <h1 class="add-recipe-heading title">Add your own recipe</h1>
   <h3 class="add-recipe-subheading subtitle">Upload your own recipe and share it with the rest of the world. Don't keep
     that tasty dish to yourself :)</h3>
+  <p>You don't need to create an account in order to add a recipe, but if you do you'll be able to receive messages from other users, edit your recipe and a bunch of other cool stuff.</p>
   <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)" class="add-recipe-form">
 
     <div class="field">
       <label class="label">Recipe name</label>
       <div class="control">
-        <input class="input" type="text" placeholder="Enter a name for the recipe" name="name" ngModel>
+        <input required class="input" type="text" placeholder="Enter a name for the recipe" name="name" ngModel>
       </div>
     </div>
 
     <div class="field">
       <label class="label">Description</label>
       <div class="control">
-        <textarea class="textarea" placeholder="Write something about the recipe!" name="description" ngModel></textarea>
+        <textarea class="textarea" placeholder="Write something about the recipe!" name="description"
+          ngModel></textarea>
       </div>
     </div>
 
@@ -24,7 +26,7 @@
       <div class="control">
         <!--<textarea class="textarea" placeholder="Instructions" name="instructions" ngModel></textarea>-->
         <app-instruction></app-instruction>
-        <input class="input" type="hidden" name="instructions" ngModel="instructions" #instructions>        
+        <input class="input" type="hidden" name="instructions" ngModel="instructions" #instructions>
       </div>
     </div>
 
@@ -32,7 +34,8 @@
       <label class="label">Type</label>
       <div class="control">
         <div class="select">
-          <select name="type">
+          <select required name="type" ngModel>
+            <option value="" disabled selected>Select...</option>
             <option *ngFor="let recipeType of options">{{ recipeType.name }}</option>
           </select>
         </div>
@@ -42,58 +45,7 @@
     <app-image-upload></app-image-upload>
     <input class="input" type="hidden" name="images" ngModel="images" #images>
 
-    <label class="label">Add some tags (optional)</label>
-    <div class="field has-addons">
-      <div class="control">
-        <input name="tags" ngModel class="input" type="text" placeholder="Add a tag...">
-      </div>
-      <div class="control">
-        <a class="button is-info">
-          Add
-        </a>
-      </div>
-    </div>
-
-    <div class="tags-wrapper">
-      <div class="field is-grouped is-grouped-multiline">
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Nutritious</span>
-            <a class="tag is-delete"></a>
-          </div>
-        </div>
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Low fat</span>
-            <a class="tag is-delete"></a>
-          </div>
-        </div>
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Vitamin rich</span>
-            <a class="tag is-delete"></a>
-          </div>
-        </div>
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Protein bomb</span>
-            <a class="tag is-delete"></a>
-          </div>
-        </div>
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Family friendly</span>
-            <a class="tag is-delete"></a>
-          </div>
-        </div>
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag is-dark">Veggies only</span>
-            <a class="tag is-delete"></a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-tag></app-tag>
 
     <div class="field submit-btn-wrapper is-grouped">
       <div class="control">

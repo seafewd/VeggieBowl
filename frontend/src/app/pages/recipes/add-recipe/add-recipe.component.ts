@@ -21,9 +21,7 @@ export class AddRecipeComponent implements OnInit {
     private recipeService: RecipeService,
     private notificationService: NotificationService,
     private router: Router,
-    private instructionService: InstructionService) {
-
-  }
+    private instructionService: InstructionService) { }
 
   options: any;
 
@@ -38,13 +36,12 @@ export class AddRecipeComponent implements OnInit {
     const instructions = this.ic.getInstructions();
 
     if (!form.valid) return;
-
     // set form fields
     form.controls['instructions'].setValue(instructions);
     form.controls['images'].setValue(imagePaths);
 
     const data = JSON.stringify(form.value);
-
+    console.log(data)
     this.recipeService.createRecipe(data).subscribe((recipe: any) => {
       this.router.navigateByUrl(`/recipes/${recipe._id}`);
       this.notificationService.show("Recipe created!");

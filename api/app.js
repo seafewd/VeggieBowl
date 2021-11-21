@@ -78,7 +78,6 @@ app.post('/recipes', (req, res) => {
     let description = form.description;
     let ingredients = form.ingredients;
     let instructions = form.instructions;
-    console.log(instructions)
     let type = form.type;
     let published = form.published;
     let images = form.images;

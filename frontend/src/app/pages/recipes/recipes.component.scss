@@ -9,8 +9,8 @@ $card-background-color: black;
 .recipe-boxes {
     display: flex;
     flex-wrap: wrap;
-    row-gap: 55px;
-    justify-content: space-between;
+    gap: 55px;
+    justify-content: flex-start;
     align-content: stretch;
 
     .recipes-content {
@@ -32,8 +32,9 @@ $card-background-color: black;
             z-index: 1;
             border-radius: 3px;
             backdrop-filter: blur(6px);
-            color: $primary-light;
-            text-shadow: 0px 1px 1px rgba(white, .8);
+            color: $white;
+            background-color: rgba($primary, .3);
+            text-shadow: 0px 1px 2px rgba(black, .8);
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 1.1px;

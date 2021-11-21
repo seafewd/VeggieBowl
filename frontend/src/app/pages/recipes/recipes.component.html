@@ -15,12 +15,13 @@
 
         <div class="card">
           <div class="type-tag">
-            <a class="type-tag-link">Breakfast</a>
+            <a class="type-tag-link">{{ recipe.type }}</a>
           </div>
           <a [routerLink]="['/recipes', recipe._id]" class="recipe-link">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="{{ recipe.images[0] }}" alt="Placeholder image">
+                <img src="http://localhost:3000/uploads/images/image2.png">
+                <img *ngIf="recipe.images.length !== 0" src="{{ recipe.images[0] }}">
               </figure>
             </div>
           </a>
@@ -28,7 +29,7 @@
             <div class="media">
               <div class="media-left">
                 <figure class="image is-48x48">
-                  <img src="../assets/recipe-images/image.png" alt="Placeholder image">
+                  <img src="http://localhost:3000/uploads/images/image.png">
                 </figure>
               </div>
               <div class="media-content">
