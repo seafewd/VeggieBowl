@@ -1,8 +1,41 @@
 @import '../../../../../styles.scss';
 
 .tags-wrapper {
+    display: inline-flex;
+    gap: 10px;
+    flex: 0;
     padding: 18px;
     
     border-radius: 5px;
-    border: 2px solid $bright-blue;
+    border: 2px solid rgba($primary-light, .4);
+
+    .field.is-grouped.is-grouped-multiline:last-child {
+        margin-bottom: 0;
+    }
+
+    .tags {
+
+        .tag {
+            margin-bottom: 0;
+        }
+    }
+
+}
+
+.label, label {
+    color: $brighter-blue;
+}
+
+.input, input {
+    background-color: $primary;
+    color: $white;
+    transition: .2s all ease-in-out;
+    border: 2px solid rgba($primary-light, .4);
+    &::placeholder {
+        color: rgba(white, .4);
+    }
+}
+
+.input:hover, input:hover {
+    border: 2px solid rgba($primary-light, .4);
 }

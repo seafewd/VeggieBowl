@@ -19,6 +19,7 @@ const RecipeSchema = ({
         required: false
     }],
     instructions: [{
+        // why does this work like it do???? todo
     }],
     type: {
         type: String,
@@ -30,7 +31,10 @@ const RecipeSchema = ({
     }],
     published: {
         type: Boolean
-    }
+    },
+    tags: [{
+        
+    }]
 })
 
 const Recipe = mongoose.model('Recipe', RecipeSchema);

@@ -1,8 +1,9 @@
 <div class="recipes-wrapper container">
 
-  <h1 class="title is-1">Recipes</h1>
+  <h2 class="title is-1">Recipes</h2>
 
-  <h3 class="subtitle">Browse all users' recipes here. You can also use the search bar to find a specific recipe or use filters to find something that suits you best.</h3>
+  <h4 class="subtitle is-4">Browse all users' recipes here. You can also use the search bar to find a specific recipe or use
+    filters to find something that suits you best.</h4>
 
   <div class="recipe-boxes">
     <div class="recipes-content" *ngFor="let recipe of recipes">
@@ -42,33 +43,27 @@
 
             <div class="text-content">
               <div class="description-wrapper">
-                {{ recipe.description }}
+                {{ (recipe.description.length > 115) ? (recipe.description | slice:0:115) + " ..." : (recipe.description) }}
               </div>
               <a [routerLink]="['/recipes', recipe._id]" class="recipe-link">Full
                 recipe</a>
-              <div class="tags-wrapper">
-                <div class="field is-grouped is-grouped-multiline">
+              <div class="tags-wrapper" *ngIf="recipe.tags.length > 0">
+                <div class="field is-grouped is-grouped-multiline" *ngFor="let tag of recipe.tags">
                   <div class="control">
                     <div class="tags">
-                      <a><span class="tag is-dark">#Nutritious</span></a>
-                    </div>
-                  </div>
-                  <div class="control">
-                    <div class="tags">
-                      <a><span class="tag is-dark">#Low fat</span></a>
+                      <a><span class="tag is-dark">{{ tag.text }}</span></a>
                     </div>
                   </div>
                 </div>
+                <br>
+                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <button class="delete-btn" (click)="deleteRecipe(recipe._id)">
+                  <i class="material-icons delete-btn">delete</i>
+                </button>
               </div>
-              <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              <button class="delete-btn" (click)="deleteRecipe(recipe._id)">
-                <i class="material-icons delete-btn">delete</i>
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>

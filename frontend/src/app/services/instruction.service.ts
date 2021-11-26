@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { WebRequestService } from './web-request.service';
+import { Instruction } from '../models/instruction.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InstructionService {
+
+  instructions: Instruction[] = []
 
   options = [
     { name: "Breakfast", value: "breakfast" },
@@ -15,9 +17,18 @@ export class InstructionService {
     { name: "Other", value: "other" }
   ]
 
-  constructor(private webRequestService: WebRequestService) { }
+  constructor() { }
+
+  getInstruction(id: string) {
+    return this.instructions.find(i => i._id === id)
+  }
 
   getOptions(): { name: string; value: string; }[] {
     return this.options;
+  }
+
+  updateInstruction(instruction: Instruction, updatedFields: Partial<Instruction>) {
+    Object.assign(instruction, updatedFields);
+  
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Instruction } from 'src/app/models/instruction.model';
 import { Recipe } from 'src/app/models/recipe.model';
+import { InstructionService } from 'src/app/services/instruction.service';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class ViewRecipeComponent implements OnInit {
   
   constructor(
     private recipeService: RecipeService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private ic: InstructionService) { }
     
     ngOnInit(): void {
       this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -28,6 +30,10 @@ export class ViewRecipeComponent implements OnInit {
           this.instructions = recipe.instructions;
         });
     });
+  }
+
+  toggleCompleted(instruction: Instruction) {
+    this.ic.updateInstruction(instruction, { completed: !instruction.completed});
   }
 
 }

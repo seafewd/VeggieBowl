@@ -28,3 +28,32 @@ label {
         }
     }
 }
+
+.label-wrapper {
+    cursor: pointer;
+    &:hover {
+        background-color: $primary-light;
+    }
+}
+
+.file {
+    width: fit-content;
+}
+
+.file-cta {
+    background-color: $primary;
+    color: $white;
+    transition: .2s all ease-in-out;
+    border: 2px solid $primary-light !important;
+    border-radius: 4px;
+
+    .file-icon {
+        transition: .2s all ease-in-out;
+    }
+    &:hover {
+        border-radius: 4px !important;
+        .file-icon {
+            transform: translateY(-3px);
+        }
+    }
+}

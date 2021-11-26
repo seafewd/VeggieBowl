@@ -6,6 +6,7 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { InstructionComponent } from './instruction/instruction.component';
+import { TagComponent } from './tag/tag.component';
 
 @Component({
   selector: 'app-add-recipe',
@@ -16,6 +17,7 @@ export class AddRecipeComponent implements OnInit {
 
   @ViewChild(ImageUploadComponent) iuc: ImageUploadComponent;
   @ViewChild(InstructionComponent) ic: InstructionComponent;
+  @ViewChild(TagComponent) tc: TagComponent;
 
   constructor(
     private recipeService: RecipeService,
@@ -34,11 +36,13 @@ export class AddRecipeComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     const imagePaths = this.iuc.getImagePaths();
     const instructions = this.ic.getInstructions();
+    const tags = this.tc.getTags();
 
     if (!form.valid) return;
     // set form fields
     form.controls['instructions'].setValue(instructions);
     form.controls['images'].setValue(imagePaths);
+    form.controls['tags'].setValue(tags);
 
     const data = JSON.stringify(form.value);
     console.log(data)

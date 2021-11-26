@@ -9,18 +9,26 @@
 
             <ng-container *ngIf="recipe">
                 <!-- recipe content -->
-                <h2 class="recipe-name title">{{ recipe.name }}</h2>
-                <p class="recipe-name subtitle">{{ recipe.description }}</p>
-                <p class="recipe-type subtitle">{{ recipe.type }}</p>
+                <div class="intro-content">
+                    <h2 class="recipe-name title is-2">{{ recipe.name }}</h2>
+                    <p class="recipe-name subtitle">{{ recipe.description }}</p>
+                    <p class="recipe-type subtitle">{{ recipe.type }}</p>
+                </div>
                 <div *ngIf="imagePaths.length > 0" class="images-container">
                     <div *ngFor="let path of imagePaths" class="image-container"
                         style="background: url('{{ path }}') no-repeat center center / cover"></div>
                 </div>
-                <div *ngFor="let instruction of instructions" class="instructions-list">
-                    <div class="instruction">
-                        <div class="instruction-field">
-                            <div class="index-box"><b>{{ instructions.indexOf(instruction) + 1 }}.</b></div>
-                            {{ instruction.text }}
+                <div class="instructions-wrapper">
+                    <h3 class="subtitle is-3 instructions-heading">Instructions</h3>
+                    <div *ngFor="let instruction of instructions" class="instructions-list">
+                        <div class="instruction" [class.completed]="instruction.completed">
+                            <div class="instruction-field">
+                                    <span class="completed-check" (click)="toggleCompleted(instruction)">
+                                        <i class="material-icons">check_circle</i>
+                                    </span>
+                                <div class="index-box"><b>{{ instructions.indexOf(instruction) + 1 }}.</b></div>
+                                {{ instruction.text }}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,13 +7,19 @@
 
 }
 
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .images-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     height: 400px;
     width: 100%;
     gap: 25px;
-    margin-top: 25px;
+    margin: 25px auto 0 auto;
 
     .image-container {
         display: flex;
@@ -29,7 +35,12 @@
 }
 
 
-.instruction-wrapper {
+.instructions-wrapper {
+  margin-top: 25px;
+
+  .instructions-heading {
+
+  }
 
     .label-wrapper {
         display: flex;
@@ -65,6 +76,7 @@
     box-sizing: border-box;
     background: $primary;
     margin-bottom: 20px;
+    transition: .2s all ease-in-out;
 
     &:hover {
       .delete {
@@ -76,6 +88,8 @@
     }
 
     .index-box {
+      width: fit-content;
+      height: fit-content;
       border-radius: 5px;
       color: $white;
       margin-right: 10px;
@@ -97,7 +111,7 @@
   }
   
   .instruction-field {
-    width: 80%;
+    display: flex;
     color: $white;
     background: none;
     border: none;
@@ -109,7 +123,19 @@
       background: none;
     }
   }
-  
+
+    // check icon
+  .completed-check {
+    display: flex;
+    margin-right: 8px;
+    font-size: 27px;
+    opacity: .2;
+    transition: all .2s ease-in-out;
+    cursor: default;
+    &:hover {
+      cursor: pointer;
+    }
+  }
   
   .instructions-box:last-child {
     border: none;
@@ -129,4 +155,16 @@
     color: $white;
     width: 24px;
     height: 24px;
+  }
+
+  .completed:not(span.completed-check) {
+    opacity: .6;
+  }
+  .completed {
+    .completed-check {
+      opacity: 1;
+      i {
+        color: rgb(0, 197, 0);
+      }
+    }
   }

@@ -1,0 +1,5 @@
+1.
+    css errors on add recipe page
+
+2.
+    css errors in navbar

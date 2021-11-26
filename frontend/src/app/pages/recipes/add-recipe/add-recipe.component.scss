@@ -51,3 +51,7 @@ background: rgba($primary-light, .4) !important;
         border: 2px solid rgba($primary-light, .4);
     }
 }
+
+.label, label {
+    color: $brighter-blue;
+}

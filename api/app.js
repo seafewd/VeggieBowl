@@ -81,6 +81,7 @@ app.post('/recipes', (req, res) => {
     let type = form.type;
     let published = form.published;
     let images = form.images;
+    let tags = form.tags;
 
     let newRecipe = new Recipe({
         name,
@@ -89,7 +90,8 @@ app.post('/recipes', (req, res) => {
         instructions,
         type,
         images,
-        published
+        published,
+        tags
     });
     newRecipe.save().then((recipeDoc) => {
         // full recipe document is returned

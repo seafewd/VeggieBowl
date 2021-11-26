@@ -1,10 +1,10 @@
 <div class="add-recipe-wrapper">
 
-  <h1 class="add-recipe-heading title">Add your own recipe</h1>
-  <h3 class="add-recipe-subheading subtitle">Upload your own recipe and share it with the rest of the world. Don't keep
-    that tasty dish to yourself :)</h3>
+  <h2 class="add-recipe-heading title is-2">Add your own recipe</h2>
+  <h4 class="add-recipe-subheading subtitle is-4">Upload your own recipe and share it with the rest of the world. Don't keep
+    that tasty dish to yourself :)</h4>
   <p>You don't need to create an account in order to add a recipe, but if you do you'll be able to receive messages from other users, edit your recipe and a bunch of other cool stuff.</p>
-  <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)" class="add-recipe-form">
+  <form (keydown.enter)="$event.preventDefault()" #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)" class="add-recipe-form">
 
     <div class="field">
       <label class="label">Recipe name</label>
@@ -16,7 +16,7 @@
     <div class="field">
       <label class="label">Description</label>
       <div class="control">
-        <textarea class="textarea" placeholder="Write something about the recipe!" name="description"
+        <textarea class="textarea" placeholder="Add a description! Between 30-60 words (250-500 characters) recommended." name="description"
           ngModel></textarea>
       </div>
     </div>
@@ -46,6 +46,7 @@
     <input class="input" type="hidden" name="images" ngModel="images" #images>
 
     <app-tag></app-tag>
+    <input class="input" type="hidden" name="tags" ngModel="tags" #tags>
 
     <div class="field submit-btn-wrapper is-grouped">
       <div class="control">
