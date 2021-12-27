@@ -24,14 +24,15 @@ export class ImageUploadComponent {
       (data) => {
         const arr: any = data;
         arr.forEach((image: any) => {
-          const imagePath = this.imageService.get(image.path);
+          const prunedPath = image.path.replace(/\\/g, "/");
+          const imagePath = this.imageService.get(prunedPath);
           this.imagePaths.push(imagePath);
         });
       },
       (error) => {
         console.error(error);
       }
-    )
+      )
   }
 
 

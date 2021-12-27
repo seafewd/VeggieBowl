@@ -33,7 +33,7 @@ export class WebRequestService {
    * @returns 
    */
   post(uri: string, payload: Object) {
-    return this.http.post(`${this.ROOT_URL}/${uri}`.replace(/\s/g, ""), payload);
+    return this.http.post(`${this.ROOT_URL}/${uri}`, payload);
   }
 
   /**
@@ -57,8 +57,8 @@ export class WebRequestService {
     })
   }
 
-  // TODO
-  /*
+
+  /** authentication */
 
   login(email: string, password: string) {
     return this.http.post(`${this.ROOT_URL}/users/login`, {
@@ -77,7 +77,7 @@ export class WebRequestService {
       observe: 'response'
     });
   }
-  */
+ 
 
 
 

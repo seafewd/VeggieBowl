@@ -14,6 +14,7 @@ export class ImageService {
     for (let i = 0; i < images.length; i++) {
       const image = images[i];
       formData.append('images', image);
+      // image path is correct/file data ok
     }
     return this.webRequestService.post("files", formData);
   }

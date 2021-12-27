@@ -4,6 +4,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
 import { ENumbersComponent } from './pages/e-numbers/e-numbers.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AddRecipeComponent } from './pages/recipes/add-recipe/add-recipe.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { ViewRecipeComponent } from './pages/recipes/view-recipe/view-recipe.component';
@@ -18,6 +19,7 @@ const routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contribute', component: ContributeComponent },
+  { path: 'login', component: LoginComponent },
 
 ]
 @NgModule({

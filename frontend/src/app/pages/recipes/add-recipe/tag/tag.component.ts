@@ -14,10 +14,6 @@ export class TagComponent implements OnInit {
   constructor(private tagService: TagService) { }
 
   ngOnInit(): void {
-    this.tags.push(new Tag("#test"))
-    this.tags.push(new Tag("#test2"))
-    this.tags.push(new Tag("#test3"))
-    this.tags.push(new Tag("#test4"))
   }
 
   getTags() {

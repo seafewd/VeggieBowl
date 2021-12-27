@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { WelcomeSectionComponent } from './pages/start-page/welcome-section/welcome-section.component';
@@ -22,6 +22,8 @@ import { InstructionComponent } from './pages/recipes/add-recipe/instruction/ins
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ImageUploadComponent } from './pages/recipes/add-recipe/image-upload/image-upload.component';
 import { TagComponent } from './pages/recipes/add-recipe/tag/tag.component';
+import { LoginComponent } from './pages/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { TagComponent } from './pages/recipes/add-recipe/tag/tag.component';
     ContributeComponent,
     InstructionComponent,
     ImageUploadComponent,
-    TagComponent
+    TagComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { TagComponent } from './pages/recipes/add-recipe/tag/tag.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

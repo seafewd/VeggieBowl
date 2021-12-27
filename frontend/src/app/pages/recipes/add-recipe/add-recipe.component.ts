@@ -45,7 +45,7 @@ export class AddRecipeComponent implements OnInit {
     form.controls['tags'].setValue(tags);
 
     const data = JSON.stringify(form.value);
-    console.log(data)
+    //console.log(data)
     this.recipeService.createRecipe(data).subscribe((recipe: any) => {
       this.router.navigateByUrl(`/recipes/${recipe._id}`);
       this.notificationService.show("Recipe created!");

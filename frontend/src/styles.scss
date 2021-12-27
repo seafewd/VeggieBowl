@@ -39,6 +39,7 @@ $input-shadow: none;
 // update bulma's classes
 .title {
     color: $white;
+    font-family: $family-sans-serif;
 }
 
 .subtitle {
@@ -132,6 +133,14 @@ h2.is-bold {
 
 a {
     text-decoration: none;
+}
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .container {
