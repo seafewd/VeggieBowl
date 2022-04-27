@@ -23,6 +23,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ImageUploadComponent } from './pages/recipes/add-recipe/image-upload/image-upload.component';
 import { TagComponent } from './pages/recipes/add-recipe/tag/tag.component';
 import { LoginComponent } from './pages/login/login.component';
+import { IngredientComponent } from './components/ingredient/ingredient.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { LoginComponent } from './pages/login/login.component';
     InstructionComponent,
     ImageUploadComponent,
     TagComponent,
-    LoginComponent
+    LoginComponent,
+    IngredientComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const IngredientSchema = ({
     name: {
-        type: String
+        type: String,
+        required: true
     },
     quantity: {
         type: Number,

@@ -24,6 +24,7 @@ const { mongoose } = require('./db/mongoose');
 // load in mongoose models
 const { Recipe } = require('./db/models');
 const { User } = require('./db/models/user.model');
+const { Ingredient } = require('./db/models/ingredient.model');
 
 // parse incoming requests with JSON payload
 app.use(express.urlencoded({ extended: true }));
@@ -49,6 +50,12 @@ app.use(function (req, res, next) {
 
     next();
 });
+
+
+app.listen(port, () => {
+    console.log(`VeggieBowl server is listening on port ${port}.`);
+});
+
 
 // check whether the request has a valid JWT access token
 let authenticate = (req, res, next) => {
@@ -113,6 +120,8 @@ let verifySession = (req, res, next) => {
 
 /* ROUTE HANDLERS */
 
+/** Recipes Routes **/
+
 /** GET /recipes */
 app.get('/recipes', (req, res) => {
     // return array of all recipes in db
@@ -161,6 +170,31 @@ app.post('/recipes', (req, res) => {
         res.send(recipeDoc);
     })
 })
+
+/**
+ * Ingredients routes
+ */
+
+// GET
+// app.get('/ingredients', async (req, res) => {
+//     const payload = req.body.payload;
+//     let search = await Ingredient.find({name: {$regex: new RegExp('^' + payload + '.*', 'i')}}).exec();
+//     console.log("backend payload GET:")
+//     console.log(search)
+//     search = search.slice(0, 10);
+//     res.send({ payload: search });
+// })
+
+// POST
+app.post('/ingredients', async (req, res) => {
+    const payload = req.body.payload;
+    let search = await Ingredient.find({name: {$regex: new RegExp('^' + payload + '.*', 'i')}}).exec();
+    search = search.slice(0, 10);
+    console.log(search)
+    res.send({ payload: search });
+})
+
+/** Image Routes */
 
 /**
  * POST single image upload
@@ -276,8 +310,4 @@ app.get('/users/me/access-token', verifySession, (req, res) => {
     }).catch((e) => {
         res.status(400).send(e);
     })
-})
-
-app.listen(port, () => {
-    console.log(`VeggieBowl server is listening on port ${port}.`);
 })

@@ -1,0 +1,8 @@
+<input type="text" autocomplete="off" placeholder="Type to search for ingredients" name="search-box" class="search-box input" (keyup)="sendData($event)">
+
+<section class="search_results">
+    <p *ngIf="ingredients.length === 0 && hasQuery">No ingredients found.</p>
+    <div class="result" [ngModel] *ngFor="let ingredient of ingredients">
+        <p>{{ ingredient.name }}</p>
+    </div>
+</section>

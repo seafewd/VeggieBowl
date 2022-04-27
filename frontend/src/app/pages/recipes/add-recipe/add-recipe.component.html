@@ -2,7 +2,7 @@
 
   <h2 class="add-recipe-heading title is-2">Add your own recipe</h2>
   <h4 class="add-recipe-subheading subtitle is-4">Upload your own recipe and share it with the rest of the world. Don't keep
-    that tasty dish to yourself :)</h4>
+    that tasty dish to yourself!</h4>
   <p>You don't need to create an account in order to add a recipe, but if you do you'll be able to receive messages from other users, edit your recipe and a bunch of other cool stuff.</p>
   <form (keydown.enter)="$event.preventDefault()" #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)" class="add-recipe-form">
 
@@ -24,9 +24,16 @@
     <div class="field">
       <label class="label">Instructions</label>
       <div class="control">
-        <!--<textarea class="textarea" placeholder="Instructions" name="instructions" ngModel></textarea>-->
         <app-instruction></app-instruction>
         <input class="input" type="hidden" name="instructions" ngModel="instructions" #instructions>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Ingredients</label>
+      <div class="control">
+        <app-ingredient></app-ingredient>
+        <input class="input" type="hidden" name="ingredients" ngModel="ingredients" #ingredients>
       </div>
     </div>
 

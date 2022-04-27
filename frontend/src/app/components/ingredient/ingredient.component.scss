@@ -1,0 +1,30 @@
+@import '../../../styles.scss';
+
+.input {
+    position: relative;
+    background-color: $primary;
+    color: $white;
+    transition: .2s all ease-in-out;
+    border: 2px solid rgba($primary-light, .4);
+    &::placeholder {
+        color: rgba(white, .4);
+    }
+    &:hover, &:focus, &:focus-within, &:active, &:focus-visible {
+        border: 2px solid rgba($primary-light, .4);
+    }
+}
+
+.search_results {
+    position: absolute;
+    z-index: 1;
+    background-color: $primary-light;
+    padding: 10px 15px;
+
+    .result {
+
+        background-color: $primary;
+        padding: 5px 15px;
+        margin: 5px;
+    }
+
+}
