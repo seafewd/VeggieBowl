@@ -15,7 +15,7 @@ export class WebRequestService {
 
   constructor(private http: HttpClient) {
     // this.ROOT_URL = 'http://localhost:3000'; local variant
-    this.ROOT_URL = '';
+    this.ROOT_URL = 'https://veggiebowl.herokuapp.com';
   }
 
   /**
