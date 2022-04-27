@@ -130,6 +130,19 @@ let verifySession = (req, res, next) => {
 
 /* ROUTE HANDLERS */
 
+/** GET root */
+app.get('/', (req, res, next) => {
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            name: 'VeggieBowl',
+            version: '0.1.0'
+        }
+    });
+
+});
+
 /** Recipes Routes **/
 
 /** GET /recipes */
