@@ -2,8 +2,8 @@ const express = require('express');
 
 const app = express();
 
-const dotenv = require('dotenv');
-dotenv.config();
+// const dotenv = require('dotenv');
+// dotenv.config();
 
 //const port = 3000;
 const port = process.env.PORT || 8080; // for heroku
