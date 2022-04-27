@@ -16,7 +16,8 @@ export class IngredientService {
     // ).pipe(map(data => data.payload))
     
     // todo fix dis ugly shit
-    return this.httpClient.post<{payload: Array<Ingredient>}>('http://localhost:3000/ingredients', {payload: query}
+    //return this.httpClient.post<{payload: Array<Ingredient>}>('http://localhost:3000/ingredients', {payload: query} local variant
+    return this.httpClient.post<{payload: Array<Ingredient>}>('ingredients', {payload: query}
     ).pipe(map(data => data.payload))
   }
 }
