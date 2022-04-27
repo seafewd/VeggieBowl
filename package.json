@@ -12,5 +12,22 @@
   },
   "devDependencies": {
     "@types/uuid": "^8.3.3"
-  }
+  },
+  "name": "veggiebowl",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seafewd/VeggieBowl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seafewd/VeggieBowl/issues"
+  },
+  "homepage": "https://github.com/seafewd/VeggieBowl#readme"
 }
