@@ -18,11 +18,11 @@ const storage = multer.diskStorage({
     }
 })
 
-// const module = require('path');
-// app.use(express.static('public'));
-//   app.get('*',(req,res)=>{
-//     res.sendFile(path.join(__dirname,'public/index.html'));
-// })
+const path = require('path');
+app.use(express.static('public'));
+  app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public/index.html'));
+})
 
 // load in jwt
 const jwt = require('jsonwebtoken');
@@ -132,15 +132,13 @@ let verifySession = (req, res, next) => {
 
 /** GET root */
 app.get('/', (req, res, next) => {
-
     res.status(200).json({
         status: 'success',
         data: {
             name: 'VeggieBowl',
             version: '0.1.0'
         }
-    });
-
+    }).send();
 });
 
 /** Recipes Routes **/
