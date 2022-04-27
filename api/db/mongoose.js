@@ -2,11 +2,14 @@
 
 const mongoose = require('mongoose');
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 mongoose.Promise = global.Promise;
-mongoose.connect('process.env.DB', { useNewUrlParser: true }).then(() => {
-    console.log('Connected to MongoDB successfully!');
+mongoose.connect(process.env.DB, { useNewUrlParser: true }).then(() => {
+    console.log('Connected to VeggieBowl DB successfully!');
 }).catch((e) => {
-    console.log('Error while attempting to connect to MongoDB');
+    console.log('Error while attempting to connect to VeggieBowl DB');
     console.log(e);
 });
 
