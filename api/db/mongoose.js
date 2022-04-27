@@ -2,8 +2,10 @@
 
 const mongoose = require('mongoose');
 
+console.log(process.env.DATABASE)
+
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DB, { useNewUrlParser: true }).then(() => {
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true }).then(() => {
     console.log('Connected to VeggieBowl DB successfully!');
 }).catch((e) => {
     console.log('Error while attempting to connect to VeggieBowl DB');
