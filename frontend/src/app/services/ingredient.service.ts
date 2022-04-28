@@ -17,7 +17,7 @@ export class IngredientService {
     
     // todo fix dis ugly shit
     //return this.httpClient.post<{payload: Array<Ingredient>}>('http://localhost:3000/ingredients', {payload: query} local variant
-    return this.httpClient.post<{payload: Array<Ingredient>}>('ingredients', {payload: query}
+    return this.httpClient.post<{payload: Array<Ingredient>}>('https://veggiebowl.herokuapp.com/ingredients', {payload: query}
     ).pipe(map(data => data.payload))
   }
 }
