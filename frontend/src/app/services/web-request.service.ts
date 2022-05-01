@@ -14,8 +14,10 @@ export class WebRequestService {
   readonly ROOT_URL;
 
   constructor(private http: HttpClient) {
-    // this.ROOT_URL = 'http://localhost:3000'; local variant
-    this.ROOT_URL = 'https://veggiebowl.herokuapp.com';
+    this.ROOT_URL = 'http://localhost:3000';
+    // TODO FIIXXXXX
+    // this.ROOT_URL = "veggiebowl-shard-00-02.aut2y.mongodb.net:27017";
+    // this.ROOT_URL = 'https://veggiebowl.herokuapp.com';
   }
 
   /**
@@ -24,6 +26,7 @@ export class WebRequestService {
    * @returns 
    */
   get(uri: string) {
+    console.log("got" + uri)
     return this.http.get(`${this.ROOT_URL}/${uri}`);
   }
   

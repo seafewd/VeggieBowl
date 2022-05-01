@@ -5,13 +5,13 @@ const app = express();
 require('dotenv').config();
 
 //const port = 3000;
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "api/uploads/images");
+        cb(null, "uploads/images");
     },
     filename: function (req, file, cb) {
         cb(null, `${Date.now()}_${file.originalname}`);
@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static('public'));  
-app.use('api/uploads/images', express.static('api/uploads/images'));
+app.use('uploads/images', express.static('uploads/images'));
 
 
 

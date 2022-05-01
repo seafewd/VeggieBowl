@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE, { useNewUrlParser: true }).then(() => {
+mongoose.connect(process.env.DATABASE_LOCAL, { useNewUrlParser: true }).then(() => {
     console.log('Connected to VeggieBowl DB successfully!');
 }).catch((e) => {
     console.log('Error while attempting to connect to VeggieBowl DB');
