@@ -23,6 +23,7 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <img src="http://localhost:3000/uploads/images/image2.png">
+                <!-- <img src="../../../../../api/uploads/images/image2.png"> TODO FIX???--> 
                 <img *ngIf="recipe.images.length !== 0" src="{{ recipe.images[0] }}">
               </figure>
             </div>

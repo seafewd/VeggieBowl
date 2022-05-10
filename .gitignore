@@ -1,0 +1,5 @@
+api/.env
+node_modules
+frontend/.DS_Store
+.DS_Store
+api/.DS_Store

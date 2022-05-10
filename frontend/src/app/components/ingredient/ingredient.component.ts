@@ -33,4 +33,15 @@ export class IngredientComponent implements OnInit {
     });
   }
 
+  onAddIngredientClick(inputField: any)  {
+    const ingredient = new Ingredient(inputField.value);
+    this.ingredients.push(ingredient);
+    console.log("adding ingredient");
+  }
+
+  onDeleteIngredientClick(ingredient: Ingredient) {
+    this.ingredients.splice(this.ingredients.indexOf(ingredient), 1);
+    console.log("deleting ingredient");
+  }
+
 }

@@ -1,8 +1,35 @@
-<input type="text" autocomplete="off" placeholder="Type to search for ingredients" name="search-box" class="search-box input" (keyup)="sendData($event)">
+<!-- <input type="text" autocomplete="off" placeholder="Type to search for ingredients" name="search-box"
+    class="search-box input" (keyup)="sendData($event)"> -->
 
-<section class="search_results">
-    <p *ngIf="ingredients.length === 0 && hasQuery">No ingredients found.</p>
-    <div class="result" [ngModel] *ngFor="let ingredient of ingredients">
-        <p>{{ ingredient.name }}</p>
+<label class="label">Ingredients</label>
+<div class="field has-addons">
+    <div class="control">
+        <div class="search_results">
+            <p *ngIf="ingredients.length === 0 && hasQuery">No ingredients found.</p>
+            <div class="result" [ngModel] *ngFor="let ingredient of ingredients">
+                <p>{{ ingredient.name }}</p>
+            </div>
+        </div>
+        <input name="search-box" class="search-box input" type="text" placeholder="Search for an ingredient..."
+            (keyup)="sendData($event)" (keydown.enter)="addButton.click()" #ingredientInput>
     </div>
-</section>
+    <div class="control">
+        <button type="button" class="button is-info" name="addIngredientButton"
+            (click)="onAddIngredientClick(ingredientInput)" #addButton>
+            Add
+        </button>
+    </div>
+</div>
+
+<div class="ingredients-wrapper" *ngIf="ingredients.length > 0">
+    <div class="field is-grouped is-grouped-multiline" name="ingredients-container"
+        *ngFor="let ingredientItem of ingredients">
+        <div class="control">
+            <div class="ingredients has-addons">
+                <span class="ingredient is-dark">{{ ingredientItem.name }}</span>
+                <a class="ingredient is-delete" #deleteIngredientButton
+                    (click)="onDeleteIngredientClick(ingredientItem)"></a>
+            </div>
+        </div>
+    </div>
+</div>
