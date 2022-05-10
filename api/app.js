@@ -4,8 +4,8 @@ const app = express();
 
 require('dotenv').config();
 
-//const port = 3000;
-const port = process.env.PORT || 8000;
+
+const port = process.env.PORT_LOCAL || 8080;
 
 const multer = require('multer');
 
@@ -175,6 +175,7 @@ app.post('/recipes', (req, res) => {
     let published = form.published;
     let images = form.images;
     let tags = form.tags;
+    console.log(ingredients)
 
     let newRecipe = new Recipe({
         name,

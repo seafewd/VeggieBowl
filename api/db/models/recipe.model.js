@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Ingredient } = require('./ingredient.model');
+require('./ingredient.model');
 
 const RecipeSchema = ({
     name: {
@@ -13,11 +13,19 @@ const RecipeSchema = ({
         required: false,
         trim: true
     },
-    ingredients: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Ingredient',
-        required: false
-    }],
+    // ingredients: [{
+    //     _id: {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: 'Ingredient'
+    //     },
+    //     ingName: String,
+    //     ingQuantity: String, // todo change?
+    //     ingQuantityUnit: String,
+    //     ingImgUrl: String
+    // }],
+    //
+    // KEEP THIS v
+    // ingredients: [mongoose.model('Ingredient').schema],
     instructions: [{
         // why does this work like it do???? todo
     }],
