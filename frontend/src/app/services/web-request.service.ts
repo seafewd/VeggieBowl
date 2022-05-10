@@ -15,9 +15,6 @@ export class WebRequestService {
 
   constructor(private http: HttpClient) {
     this.ROOT_URL = 'http://localhost:3000';
-    // TODO FIIXXXXX
-    // this.ROOT_URL = "veggiebowl-shard-00-02.aut2y.mongodb.net:27017";
-    // this.ROOT_URL = 'https://veggiebowl.herokuapp.com';
   }
 
   /**
