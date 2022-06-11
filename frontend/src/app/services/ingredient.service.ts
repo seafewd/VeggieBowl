@@ -15,7 +15,7 @@ export class IngredientService {
     // return this.webRequestService.post<{payload: Array<Ingredient>}>('ingredients', {payload: query}
     // ).pipe(map(data => data.payload))
     
-    // todo fix dis ugly shit
+    // todo fix dis ugly shnitz
     return this.httpClient.post<{payload: Array<Ingredient>}>('http://localhost:3000/ingredients', {payload: query}
     ).pipe(map(data => data.payload))
   }
