@@ -1,5 +1,7 @@
 api/.env
+api/.DS_Store
+api/public/images
 node_modules
 frontend/.DS_Store
+frontend/.env
 .DS_Store
-api/.DS_Store

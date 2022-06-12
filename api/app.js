@@ -11,7 +11,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "uploads/images");
+        cb(null, "public/images");
     },
     filename: function (req, file, cb) {
         cb(null, `${Date.now()}_${file.originalname}`);
@@ -41,8 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static('public'));  
-app.use('uploads/images', express.static('uploads/images'));
-
+app.use('/public', express.static('public'));
 
 
 /* Middleware */

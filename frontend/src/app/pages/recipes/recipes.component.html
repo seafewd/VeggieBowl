@@ -22,7 +22,7 @@
           <a [routerLink]="['/recipes', recipe._id]" class="recipe-link">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="http://localhost:3000/uploads/images/image2.png">
+                <img src="http://localhost:3000/images/image2.png">
                 <img *ngIf="recipe.images.length !== 0" src="{{ recipe.images[0] }}">
               </figure>
             </div>
@@ -31,7 +31,7 @@
             <div class="media">
               <div class="media-left">
                 <figure class="image is-48x48">
-                  <img src="http://localhost:3000/uploads/images/image.png">
+                  <img src="http://localhost:3000/images/image.png">
                 </figure>
               </div>
               <div class="media-content">

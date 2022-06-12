@@ -27,7 +27,6 @@ export class ViewRecipeComponent implements OnInit {
         this.recipeService.getRecipe(id as string).subscribe((recipe: any) => {
           this.recipe = recipe;
           this.imagePaths = recipe.images;
-          console.log(recipe)
           this.instructions = recipe.instructions;
         });
     });

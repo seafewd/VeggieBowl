@@ -24,6 +24,7 @@ export class ImageUploadComponent {
       (data) => {
         const arr: any = data;
         arr.forEach((image: any) => {
+          console.log(image)
           const prunedPath = image.path.replace(/\\/g, "/");
           const imagePath = this.imageService.get(prunedPath);
           this.imagePaths.push(imagePath);
