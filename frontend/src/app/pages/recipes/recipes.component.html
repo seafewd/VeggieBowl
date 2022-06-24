@@ -36,7 +36,7 @@
               </div>
               <div class="media-content">
                 <a [routerLink]="['/recipes', recipe._id]" class="recipe-link">
-                  <p class="title is-4">{{ recipe.name}}</p>
+                  <p class="title is-4">{{ recipe.name }}</p>
                 </a>
                 <p class="subtitle is-6">@anonymous</p>
               </div>
@@ -58,7 +58,9 @@
                   </div>
                 </div>
                 <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Ja 2016</time>
+              </div>
+              <div class="time-wrapper">
+                <time>{{ recipe.creationDate }}</time>
               </div>
               <button class="delete-btn" (click)="deleteRecipe(recipe._id)">
                 <i class="material-icons delete-btn">delete</i>

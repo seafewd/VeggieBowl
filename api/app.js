@@ -176,7 +176,6 @@ app.post('/recipes', (req, res) => {
     let published = form.published;
     let images = form.images;
     let tags = form.tags;
-    console.log(ingredients)
 
     let newRecipe = new Recipe({
         name,

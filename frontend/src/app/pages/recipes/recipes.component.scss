@@ -65,9 +65,13 @@ $card-background-color: black;
 
 .tags-wrapper {
     margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
 
     .tag {
         transition: .1s linear;
+        border: 1px solid gray;
         &:hover {
             transform: translateY(-2px);
         }
